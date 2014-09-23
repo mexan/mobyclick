@@ -1,0 +1,22 @@
+{namespace dce=Tx_Dce_ViewHelpers}
+<f:layout name="Default" />
+
+<f:section name="main">
+<f:if condition="{field.GallerySize} == 0"><f:then><div class="container-fluid"></f:then><f:else><div class="container"></f:else></f:if>
+	<div class="row">
+		<div class="col-sm-8 col-sm-offset-2 text-center">
+			<h1>{field.GalleryTitle}</h1>
+			<p>{field.GalleryText}</p>
+		</div>
+		<div class="thumbnails" data-toggle="lightbox">
+			<f:for each="{field.GalleryElement}" as="element">
+			<div class="col-lg-3 col-md-4 col-xs-6 thumb">
+				<a href="/uploads/pics/{element.GalleryElementPicture}" data-description="{element.GalleryElementCaption}" class="thumbnail">
+				<f:image class="img-responsive" src="uploads/pics/{element.GalleryElementPicture}" width="600" alt="{element.GalleryElementCaption}" />
+				</a>
+			</div>
+			</f:for>
+		</div>
+	</div>
+<f:if condition="{field.GallerySize} == 0"><f:then></f:then><f:else></div></f:else></f:if>
+</f:section>

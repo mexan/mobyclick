@@ -1,0 +1,32 @@
+{namespace dce=Tx_Dce_ViewHelpers}
+<f:layout name="None" />
+
+<f:section name="main">
+<div class="container">
+<div class="row">
+	<div class="col-sm-8 col-sm-offset-2 text-center">
+		<h1>{field.TeamTitle}</h1>
+		<p>{field.TeamText}</p>
+	</div>
+<f:for each="{field.TeamElement}" as="element">
+	<div class="{field.TeamCount} text-center">
+		<f:if condition="{element.TeamElementButton}"><f:then><a href="{element.TeamElementButtonLink}"></f:then></f:if>
+		<f:image class="{field.TeamImageStyle}" src="uploads/pics/{element.TeamElementPicture}" height="160c" width="160c" alt="{element.TeamElementTitle}" />
+		<f:if condition="{element.TeamElementButton}"><f:then></a></f:then></f:if>
+		<h2>{element.TeamElementTitle}</h2>
+		<p><f:link.email email="{element.TeamElementEmail}" /></p>
+		<p>{element.TeamElementText}</p>
+		<f:if condition="{element.TeamElementButton}"><f:then><p><a href="{element.TeamElementButtonLink}" class="btn btn-{element.TeamElementButtonColor}" role="button">{element.TeamElementButton}</a></p></f:then></f:if>
+		<f:if condition="{element.TeamProfileFacebook}"><f:then><a href="{element.TeamProfileFacebook}" target="_blank" role="button"><button type="button" class="btn btn-circle" style="background:#3B5998;color:#fff"><i class="fa fa-facebook fa-lg"></i></button></a></f:then><f:else></f:else></f:if>
+		<f:if condition="{element.TeamProfileTwitter}"><f:then><a href="{element.TeamProfileTwitter}" target="_blank" role="button"><button type="button" class="btn btn-circle" style="background:#00aced;color:#fff"><i class="fa fa-twitter fa-lg"></i></button></a></f:then><f:else></f:else></f:if>
+		<f:if condition="{element.TeamProfileGooglePlus}"><f:then><a href="{element.TeamProfileGooglePlus}" target="_blank" role="button"><button type="button" class="btn btn-circle" style="background:#dd4b39;color:#fff"><i class="fa fa-google-plus fa-lg"></i></button></a></f:then><f:else></f:else></f:if>
+		<f:if condition="{element.TeamProfilePinterest}"><f:then><a href="{element.TeamProfilePinterest}" target="_blank" role="button"><button type="button" class="btn btn-circle" style="background:#cb2027;color:#fff"><i class="fa fa-pinterest fa-lg"></i></button></a></f:then><f:else></f:else></f:if>
+		<f:if condition="{element.TeamProfileInstagram}"><f:then><a href="{element.TeamProfileInstagram}" target="_blank" role="button"><button type="button" class="btn btn-circle" style="background:#007bb6;color:#fff"><i class="fa fa-instagram fa-lg"></i></button></a></f:then><f:else></f:else></f:if>
+		<f:if condition="{element.TeamProfileXing}"><f:then><a href="{element.TeamProfileXing}" target="_blank" role="button"><button type="button" class="btn btn-circle" style="background:#006567;color:#fff"><i class="fa fa-xing fa-lg"></i></button></a></f:then><f:else></f:else></f:if>
+		<f:if condition="{element.TeamProfileLinkedin}"><f:then><a href="{element.TeamProfileLinkedin}" target="_blank" role="button"><button type="button" class="btn btn-circle" style="background:#007bb6;color:#fff"><i class="fa fa-linkedin fa-lg"></i></button></a></f:then><f:else></f:else></f:if>
+		<f:if condition="{element.TeamProfileSkype}"><f:then><a href="{element.TeamProfileSkype}" target="_blank" role="button"><button type="button" class="btn btn-circle" style="background:#01aef2;color:#fff"><i class="fa fa-skype fa-lg"></i></button></a></f:then><f:else></f:else></f:if>
+	</div>
+</f:for>		
+</div>
+</div>
+</f:section>

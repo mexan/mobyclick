@@ -1,0 +1,33 @@
+{namespace dce=Tx_Dce_ViewHelpers}
+<f:layout name="None" />
+
+<f:section name="main">
+<div class="container">
+<div class="row">
+	<div class="col-sm-8 col-sm-offset-2 text-center">
+		<h1>{field.ThumbnailTitle}</h1>
+		<p>{field.ThumbnailText}</p>
+	</div>
+<f:for each="{field.ThumbnailElement}" as="element">
+	<div class="{field.ThumbnailCount}">
+		<div class="{field.ThumbnailBorder} {field.ThumbnailAlign}">
+			<f:if condition="{field.ThumbnailImageResponsive} == 0"><f:then>
+				<f:if condition="{element.ThumbnailElementButton}"><f:then><a href="{element.ThumbnailElemnentButtonLink}"></f:then></f:if>	
+				<f:if condition="{element.ThumbnailElementPicture}"><f:then><f:image src="uploads/pics/{element.ThumbnailElementPicture}" alt="{element.ThumbnailElementTitle}" width="800" class="img-responsive" /></f:then></f:if>
+				<f:if condition="{element.ThumbnailElementButton}"><f:then></a></f:then></f:if>
+			</f:then><f:else>
+				<f:if condition="{element.ThumbnailElementButton}"><f:then><a href="{element.BThumbnailElementLink}"></f:then></f:if>	
+				<f:if condition="{element.ThumbnailElementPicture}"><f:then><f:image src="uploads/pics/{element.ThumbnailElementPicture}" alt="{element.ThumbnailElementTitle}" width="160c" height="160c" class="{field.ThumbnailImageStyle}" /></f:then></f:if>
+				<f:if condition="{element.ThumbnailElementButton}"><f:then></a></f:then></f:if>
+			</f:else></f:if>
+			<div class="caption">
+				<h3>{element.ThumbnailElementTitle}</h3>
+				<p>{element.ThumbnailElementText}</p>
+				<f:if condition="{element.ThumbnailElementButton}"><f:then><p><a href="{element.ThumbnailElementButtonLink}" class="btn btn-{element.ThumbnailElementButtonColor}" role="button">{element.ThumbnailElementButton}</a></p></f:then></f:if>				
+			</div>
+		</div>
+	</div>
+</f:for>		
+</div>
+</div>
+</f:section>

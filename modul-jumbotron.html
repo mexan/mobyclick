@@ -1,0 +1,12 @@
+{namespace dce=Tx_Dce_ViewHelpers}
+<f:layout name="None" />
+
+<f:section name="main">
+<f:if condition="{field.JumbotronSize} == 0"><f:then><div class="jumbotron"><div class="container"></f:then><f:else><div class="container"><div class="jumbotron"></f:else></f:if>
+	<f:if condition="{field.JumbotronColumns} == 1"><f:then><div class="row"><div class="col-sm-6"></f:then></f:if>
+	<h1>{field.JumbotronTitle}</h1>
+	<p>{field.JumbotronText}</p>
+	<f:if condition="{field.JumbotronButton}"><f:then><p><a href="{field.JumbotronButtonLink}" class="btn btn-{field.JumbotronButtonColor}" role="button">{field.JumbotronButton}</a></p></f:then></f:if>
+	<f:if condition="{field.JumbotronColumns} == 1"><f:then></div><div class="col-sm-4 col-sm-offset-2"><f:image src="uploads/pics/{field.JumbotronPicture}" alt="{field.JumbotronTitle}" width="400" class="img-responsive" /></div></div></f:then></f:if>
+</div></div>
+</f:section>

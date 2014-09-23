@@ -1,0 +1,57 @@
+{namespace dce=Tx_Dce_ViewHelpers}
+<f:layout name="None" />
+
+<f:section name="main">
+<f:if condition="{field.CarouselSize} == 0"><f:then>
+<div class="row">
+	<div class="col-sm-8 col-sm-offset-2 text-center">
+		<h1>{field.CarouselTitle}</h1>
+		<p>{field.CarouselText}</p>
+	</div>
+</div>
+</f:then><f:else></f:else></f:if>
+<f:if condition="{field.CarouselSize} == 1"><f:then><div class="fullheight-outer"></f:then></f:if>
+	<div id="carousel-generic" class="carousel slide" data-ride="carousel">
+		<f:if condition="{field.CarouselSlideshow} == 0"><f:then>
+		<ol class="carousel-indicators">
+			<f:for each="{field.CarouselElement}" as="element" iteration="i" key="slideNum">
+			<li data-target="#carousel-generic" data-slide-to="{i.index}" {f:if(condition: '{i.index} == 0', then: 'class="active"', else: '')}></li>
+			</f:for>
+		</ol>
+		</f:then><f:else></f:else></f:if>
+		<div class="carousel-inner">
+			<f:for each="{field.CarouselElement}" as="element" key="slideNumber">
+			<div class="item{f:if(condition: '{0:i.index} == {0:slideNumber}', then: ' active', else: '')}">
+				<f:if condition="{field.CarouselSize} == 1"><f:then>
+				<div class="fullheight" style="background-image:url(/uploads/pics/{element.CarouselElementPicture});" />
+					<div class="container">
+						<div class="cell text-center">
+							<h3>{element.CarouselElementTitle}</h3>
+							<p>{element.CarouselElementText}</p>
+						</div>
+					</div>
+				</div>
+				</f:then>
+				<f:else>
+					<f:image src="uploads/pics/{element.CarouselElementPicture}" alt="{element.CarouselElementTitle}" width="2400" height="600c" class="img-responsive" />
+					<div class="carousel-caption">
+						<h3>{element.CarouselElementTitle}</h3>
+						<p>{element.CarouselElementText}</p>
+					</div>
+				</f:else>
+				</f:if>
+			</div>
+			</f:for>
+		</div>
+
+		<f:if condition="{field.CarouselSlideshow} == 0"><f:then>
+		<a class="left carousel-control" href="#carousel-generic" role="button" data-slide="prev">
+			<span class="fa fa-chevron-left"></span>
+		</a>
+		<a class="right carousel-control" href="#carousel-generic" role="button" data-slide="next">
+			<span class="fa fa-chevron-right"></span>
+		</a>
+		</f:then><f:else></f:else></f:if>
+	</div>
+<f:if condition="{field.CarouselSize} == 1"><f:then></div></f:then></f:if>
+</f:section>

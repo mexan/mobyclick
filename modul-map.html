@@ -1,0 +1,16 @@
+{namespace dce=Tx_Dce_ViewHelpers}
+<f:layout name="None" />
+
+<f:section name="main">
+<f:if condition="{field.MapSize} == 0"><f:then></f:then><f:else><div class="container"></f:else></f:if>
+	<div class="col-sm-8 col-sm-offset-2 text-center">
+		<h1>{field.MapTitle}</h1>
+		<p>{field.MapText}</p>
+	</div>
+	<div class="col-sm-12"><div class="row">
+		<div class="iframe-container">
+			<iframe width="600" height="300" src="https://www.google.com/maps/embed/v1/place?q={field.MapName} {field.MapStreet} {field.MapPLZ} {field.MapCity}&key=AIzaSyAR9wc0V5VsErRKRFqr1Iw1VKqPx8Cw3U0" frameborder="0" scrolling="no"></iframe>
+		</div>
+	</div></div>
+<f:if condition="{field.MapSize} == 0"><f:then></f:then><f:else></div></f:else></f:if>
+</f:section>
